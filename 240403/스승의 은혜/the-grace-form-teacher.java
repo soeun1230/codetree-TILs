@@ -30,14 +30,14 @@ public class Main {
         int cnt=0;
         while(sum<money){
             if(idx==N) break;
-            int now = map[idx][0]+map[idx][1];
+            double now = map[idx][0]+map[idx][1];
             if(sum+now<=money){
                 idx++;
                 sum+=now;
                 cnt++;
             }
             else{
-                now = map[idx][0]/2 + map[idx][1];
+                now = map[idx][0]/2.0 + map[idx][1];
                 if(sum+now<=money){
                     cnt++;
                     break;
