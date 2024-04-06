@@ -26,8 +26,10 @@ public class Main {
 
         for(int i=0;i<100;i++){
             int ch = 1;
+            int cnt =0;
             for(int j=0;j<100;j++){
-                if(Map[i][j]==1) ch=ch*(-1);
+                if(Map[i][j]==1 && cnt>0) ch=ch*(-1);
+                if(Map[i][j]==0) cnt++;
                 if(Map[i][j]==0 && visited[i][j]==0){
                     if(ch==-1) continue;
                     dfs(i,j);
