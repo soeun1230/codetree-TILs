@@ -25,11 +25,11 @@ public class Main {
         }
 
         for(int i=0;i<100;i++){
-            int ch = 0;
+            int ch = 1;
             for(int j=0;j<100;j++){
-                if(Map[i][j]==1) ch=1;
+                if(Map[i][j]==1) ch=ch*(-1);
                 if(Map[i][j]==0 && visited[i][j]==0){
-                    if(ch==1) break;
+                    if(ch==-1) continue;
                     dfs(i,j);
                 }
             }
