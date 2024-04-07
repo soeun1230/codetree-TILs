@@ -43,6 +43,7 @@ public class Main {
                 ans = Math.max(ans, cur.cnt);
                 continue;
             }
+            if(cur.cnt<ans) continue;
             
             visited[cur.x][cur.y]=1;
             
