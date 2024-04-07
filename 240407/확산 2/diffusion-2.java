@@ -14,6 +14,8 @@ public class Main {
         N = Integer.parseInt(input[0]);
         M = Integer.parseInt(input[1]);
 
+        int ss = N*M;
+
         Map = new int[N][M];
         visited = new int[N][M];
         ArrayList<Node> arr = new ArrayList<>();
@@ -23,14 +25,19 @@ public class Main {
             for(int j=0;j<M;j++){
                 int n = Integer.parseInt(input[j]);
                 Map[i][j]=n;
-                if(n==-1) visited[i][j]=1;
+                if(n==-1) {
+                    visited[i][j]=1;
+                    ss--;
+                }
                 else if(n==1) {
                     Node node = new Node(i,j,0);
                     arr.add(node);
+                    ss--;
                 }
             }
         }
 
+        //System.out.println(ss);
         Queue<Node> que = new LinkedList<>();
         for(int i=0;i<arr.size();i++){
             que.offer(arr.get(i));
@@ -39,12 +46,12 @@ public class Main {
         while(!que.isEmpty()){
             Node cur = que.poll();
 
-            if(visited[cur.x][cur.y]==1){
-                ans = Math.max(ans, cur.cnt);
-                continue;
-            }
+            // if(visited[cur.x][cur.y]==1){
+            //     ans = Math.max(ans, cur.cnt);
+            //     continue;
+            // }
             if(cur.cnt<ans) continue;
-            
+            ans = Math.max(ans, cur.cnt);
             visited[cur.x][cur.y]=1;
             
             int[][] directions = {{0,1},{0,-1},{1,0},{-1,0}};
@@ -53,32 +60,24 @@ public class Main {
                 int ny = cur.y+dir[1];
                 
                 if(nx<0||nx>=N || ny<0||ny>=M) continue;
-                if(visited[nx][ny]==1 || Map[nx][ny]==-1) continue;
+                if(visited[nx][ny]==1 || Map[nx][ny]!=0) continue;
+
 
                 Map[nx][ny]=1;
+                ss--;
                 Node no = new Node(nx,ny,cur.cnt+1);
                 que.offer(no);
             }
         }
 
-        if(check()){
+        //System.out.println(ss);
+        if(ss==0){
             System.out.println(ans);
         }
         else{
             System.out.println(-1);
         }
     }
-    public static boolean check(){
-        for(int i=0;i<N;i++){
-            for(int j=0;j<M;j++){
-                if(Map[i][j]==0){
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
     public static class Node{
         private int x;
         private int y;
