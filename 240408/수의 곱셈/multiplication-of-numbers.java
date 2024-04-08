@@ -10,22 +10,23 @@ public class Main {
         int b=scanner.nextInt();
         int c =scanner.nextInt();
 
-        int[] arr = {a,b,c};
-
-        Arrays.sort(arr);
+        boolean ch = false;
 
         int sum =1;
         if(a%2==1){
             sum*=a;
+            ch=true;
         }
         if(b%2==1){
             sum*=b;
+            ch=true;
         }
         if(c%2==1){
             sum*=c;
+            ch=true;
         }
 
-        if(sum==1){
+        if(ch==false){
             sum=a*b*c;
         }
 
