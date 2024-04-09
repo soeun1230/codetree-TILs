@@ -34,7 +34,7 @@ public class Main {
             int k = Math.min(b,c);
             int t = Math.min(k,d);
 
-            for(int i=1;i<t;i++){
+            for(int i=1;i<=t;i++){
                 if(b%i==0 && c%i==0 && d%i==0){
                     System.out.println(i);
                 }
