@@ -13,7 +13,7 @@ public class Main {
         for(int i=0;i<n;i++){
             int now = scanner.nextInt();
             small = Math.min(small,now);
-            big = Math.max(small,now);
+            big = Math.max(big,now);
         }
         System.out.printf("%d %d",small,big);
     }
