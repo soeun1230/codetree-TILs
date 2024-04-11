@@ -73,7 +73,7 @@ public class Main {
                 Map[dx][dy]=2;
                 ch++;
             }
-            else{
+            else if(Map[dx][dy]==0){
                 dfs(dx,dy);
             }
         }
