@@ -12,6 +12,7 @@ public class Main {
                     System.out.printf("%d * %d = %d  ",i,j,i*j);
                     if(j%3==0) System.out.println();
                 }
+                System.out.println();
             }
         }
         else{
